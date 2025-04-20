@@ -5,6 +5,7 @@
   , "enums"
   , "halogen"
   , "prelude"
+  , "strings"
   , "unordered-collections"
   ]
 , packages = ./packages.dhall

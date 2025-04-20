@@ -1,11 +1,11 @@
 module ParserGen.Core.Language.Rule
-    ( RuleElem(..)
-    , Rule(..)
-    , class RuleSet
-    , kind
-    , top
-    , rule
-    ) where
+  ( Rule(..)
+  , RuleElem
+  , class RuleSet
+  , top
+  , rule
+  )
+  where
 
 import Prelude
 
@@ -38,16 +38,13 @@ instance (Show ts, Show rs) => Show (Rule ts rs) where
     show (Rule elems) = "[" <> show elems <> "]"
 
 class
-    ( TokenSet ts tdef
+    ( TokenSet ts
     , Show rs
     , Enum rs
     , Bounded rs
     , Hashable rs
     )
-    <= RuleSet ts tdef rs rkind
-        | rs -> ts
-        , rs -> rkind
+    <= RuleSet ts rs | rs -> ts
     where
-        kind :: Proxy rs -> rkind
         top :: Proxy rs -> rs
         rule :: rs -> Array(Rule ts rs)

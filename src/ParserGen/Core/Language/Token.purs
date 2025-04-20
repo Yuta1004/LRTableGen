@@ -12,6 +12,7 @@ import Type.Proxy (Proxy)
 
 import Data.Enum (class Enum, enumFromTo)
 import Data.Hashable (class Hashable)
+import Data.String.Regex (Regex)
 
 class
     ( Show ts
@@ -19,11 +20,10 @@ class
     , Bounded ts
     , Hashable ts
     )
-    <= TokenSet ts def
-        | ts -> def
+    <= TokenSet ts
     where
-        defToken :: ts -> def
-        defTrivia :: ts -> def
+        defToken :: ts -> Regex
+        defTrivia :: ts -> Regex
 
-allTokens :: forall ts def. (TokenSet ts def) => Proxy ts -> Array ts
+allTokens :: forall ts. TokenSet ts => Proxy ts -> Array ts
 allTokens _ = enumFromTo bottom top
