@@ -1,4 +1,4 @@
-module ParserGen.Core.Language.Token
+module ParserGen.Language.Token
   ( class TokenSet
   , defToken
   , defTrivia

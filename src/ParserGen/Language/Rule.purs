@@ -1,4 +1,4 @@
-module ParserGen.Core.Language.Rule
+module ParserGen.Language.Rule
   ( Rule(..)
   , RuleElem
   , class RuleSet
@@ -14,7 +14,7 @@ import Type.Proxy (Proxy)
 import Data.Enum (class Enum)
 import Data.Hashable (class Hashable)
 
-import ParserGen.Core.Language.Token (class TokenSet)
+import ParserGen.Language.Token (class TokenSet)
 
 data RuleElem ts rs
     = Term ts
